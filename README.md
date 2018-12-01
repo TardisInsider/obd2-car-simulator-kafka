@@ -3,8 +3,10 @@
 An application which simulates the output of an OBD2 port
 and publishes to Kafka topics. Three topics are used, information, location, and alert.
 
-###Kafka Topic Samples
-####vehicle-info-topic
+### Kafka Topic Samples
+
+#### vehicle-info-topic
+
 ```json
 {
   "id": "07254670-be47-4ade-ad5a-2e163d667371",
@@ -72,7 +74,9 @@ and publishes to Kafka topics. Three topics are used, information, location, and
   "recorded_at": 1543688915
 }
 ```
-####vehicle-location-topic
+
+#### vehicle-location-topic
+
 ```json
 {
   "id": "29c0470d-3ca9-4029-b71a-635d94544692",
@@ -84,7 +88,9 @@ and publishes to Kafka topics. Three topics are used, information, location, and
   }
 }
 ```
-####vehicle-alert-topic
+
+#### vehicle-alert-topic
+
 ```json
 {
   "id": "b42bea66-4d26-48e4-8b39-c77b3db45c27",
@@ -95,7 +101,8 @@ and publishes to Kafka topics. Three topics are used, information, location, and
 }
 ```
 
-####Notes
+### Notes
+
 This was cloned fron https://github.com/trahloff/obd2-car-simulator.git
 
 (publishes the information to the IBM Watson IoT Platform)
