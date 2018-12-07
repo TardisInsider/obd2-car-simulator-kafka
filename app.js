@@ -1,17 +1,17 @@
 var SimulatorManager = require('./lib/simulatorManager.js');
-
+var constants = require('./lib/constants.js');
 var simManager = new SimulatorManager(5);
 simManager.start();
 
 //==============================================================================
 //create some vehicles
-simManager.addSimCar("america.gpx",null);
+simManager.addSimCar("america.gpx",null, constants.VEHICLE_IDS[0]);
 
-simManager.addSimCar("Scotch.gpx",null);
+simManager.addSimCar("Scotch.gpx",null, constants.VEHICLE_IDS[1]);
 
-simManager.addSimCar("america.gpx",null);
+simManager.addSimCar("america.gpx",null, constants.VEHICLE_IDS[2]);
 
-simManager.addSimCar("Europe1.gpx",80);
+simManager.addSimCar("Europe1.gpx",80, constants.VEHICLE_IDS[3]);
 
 
 //==============================================================================
