@@ -1,18 +1,31 @@
 var SimulatorManager = require('./lib/simulatorManager.js');
 var constants = require('./lib/constants.js');
+var uuid = require('node-uuid');
 var simManager = new SimulatorManager(5);
+
 simManager.start();
 
+var numberOfVehicles = 5;
+var args = process.argv;
+
+if (args.length > 2) {
+     var helpLoc = 4 + args.indexOf("-?") + args.indexOf("--?") + args.indexOf("-help") + args.indexOf("--help");
+     if (helpLoc > 0) {
+          console.log("Simulates the output of an OBD2 port and publishes to Kafka topics.\nThree topics are used, information, location, and alert.\n\nUsage: app.js <carCount>\n\ncarCount is optional, defaults to 5 if not provided");
+          process.exit(-1);
+     }
+     numberOfVehicles = args[2];
+}
+console.log("Number of Vehicles = " + numberOfVehicles);
+
 //==============================================================================
-//create some vehicles
-simManager.addSimCar("america.gpx",null, constants.VEHICLE_IDS[0]);
+// create some vehicles
+//    pass the vehicle ids so we can connect them with other data feeds
 
-simManager.addSimCar("Scotch.gpx",null, constants.VEHICLE_IDS[1]);
+var predefinedCount = constants.VEHICLE_IDS.length;
 
-simManager.addSimCar("america.gpx",null, constants.VEHICLE_IDS[2]);
-
-simManager.addSimCar("Europe1.gpx",80, constants.VEHICLE_IDS[3]);
-
+for (var i = 0; i < numberOfVehicles; i++)
+     simManager.addSimCar("america.gpx",null, (i > predefinedCount? uuid.v4(): constants.VEHICLE_IDS[i]));
 
 //==============================================================================
 /* - The following are for reference, may be utilized in the future
