@@ -103,6 +103,6 @@ and publishes to Kafka topics. Three topics are used, information, location, and
 
 ### Notes
 
-This was cloned fron https://github.com/trahloff/obd2-car-simulator.git
+This was cloned from https://github.com/trahloff/obd2-car-simulator.git
 
 (publishes the information to the IBM Watson IoT Platform)
